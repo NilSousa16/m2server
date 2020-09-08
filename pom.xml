@@ -17,7 +17,7 @@
 
 	<groupId>br.ufba.dcc.wiser</groupId>
 	<artifactId>m2server</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>bundle</packaging>
 
 	<name>m2server Bundle</name>
@@ -31,43 +31,59 @@
 	</properties>
 
 	<dependencies>
+		<!--  -->
 		<dependency>
 			<groupId>org.osgi</groupId>
 			<artifactId>org.osgi.core</artifactId>
 			<version>${osgi.version}</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.service.component.annotations</artifactId>
+			<version>1.3.0</version>
+		</dependency>
+		<!--  -->
 
+		<!--  -->
 		<dependency>
 			<groupId>javax.ws.rs</groupId>
 			<artifactId>javax.ws.rs-api</artifactId>
 			<version>2.0</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/io.swagger/swagger-annotations -->
 		<dependency>
 			<groupId>io.swagger</groupId>
 			<artifactId>swagger-annotations</artifactId>
 			<version>1.5.24</version>
 		</dependency>
+		<!--  -->
 
-		<dependency>
-			<groupId>org.osgi</groupId>
-			<artifactId>org.osgi.service.component.annotations</artifactId>
-			<version>1.3.0</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<!-- JSON -->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
 			<version>2.8.5</version>
 		</dependency>
+		<!-- JSON -->
 
+		<!-- Dependencies m2fot -->
 		<dependency>
 			<groupId>br.ufba.dcc.wiser</groupId>
 			<artifactId>m2model</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>br.ufba.dcc.wiser</groupId>
+			<artifactId>m2dbX</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<!-- Dependencies m2fot -->
+		
+		<!-- Dependencies for test -->
+		
+		<!-- Dependencies for test -->
 
 	</dependencies>
 

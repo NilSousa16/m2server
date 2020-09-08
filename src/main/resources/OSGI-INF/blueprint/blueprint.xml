@@ -18,7 +18,18 @@
 		</jaxrs:serviceBeans>
 	</jaxrs:server>
 
-	<bean id="gateway_route" class="br.ufba.dcc.wiser.m2server.routes.GatewayRoutes">
+	<bean id="gateway_route"
+		class="br.ufba.dcc.wiser.m2server.routes.GatewayRoutes">
+		<property name="gatewayService" ref="gatewayservice" />
 	</bean>
+
+	<bean id="gatewayservice"
+		class="br.ufba.dcc.wiser.m2server.service.GatewayService">
+		<property name="gatewayServiceDB" ref="gatewayservicedb" />
+	</bean>
+
+	<reference id="gatewayservicedb"
+		interface="br.ufba.dcc.wiser.m2dbX.service.GatewayServiceDB" />
+
 
 </blueprint>
