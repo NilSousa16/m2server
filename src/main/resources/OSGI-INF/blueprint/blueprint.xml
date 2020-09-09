@@ -20,15 +20,15 @@
 
 	<bean id="gateway_route"
 		class="br.ufba.dcc.wiser.m2server.routes.GatewayRoutes">
-		<property name="gatewayService" ref="gatewayservice" />
+		<property name="gatewayService" ref="gateway_service" />
 	</bean>
 
-	<bean id="gatewayservice"
-		class="br.ufba.dcc.wiser.m2server.service.GatewayService">
-		<property name="gatewayServiceDB" ref="gatewayservicedb" />
+	<bean id="gateway_service"
+		class="br.ufba.dcc.wiser.m2server.impl.GatewayServiceImpl">
+		<property name="gatewayServiceDB" ref="gateway_service_db" />
 	</bean>
 
-	<reference id="gatewayservicedb"
+	<reference id="gateway_service_db"
 		interface="br.ufba.dcc.wiser.m2dbX.service.GatewayServiceDB" />
 
 
