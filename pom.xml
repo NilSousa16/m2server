@@ -76,7 +76,7 @@
 
 		<dependency>
 			<groupId>br.ufba.dcc.wiser</groupId>
-			<artifactId>m2dbX</artifactId>
+			<artifactId>m2db</artifactId>
 			<version>1.0.0</version>
 		</dependency>
 		<!-- Dependencies m2fot -->

@@ -6,7 +6,7 @@ import javax.persistence.PersistenceException;
 
 import com.google.gson.Gson;
 
-import br.ufba.dcc.wiser.m2dbX.service.GatewayServiceDB;
+import br.ufba.dcc.wiser.m2db.service.GatewayServiceDB;
 import br.ufba.dcc.wiser.m2model.model.Gateway;
 import br.ufba.dcc.wiser.m2server.service.GatewayService;
 

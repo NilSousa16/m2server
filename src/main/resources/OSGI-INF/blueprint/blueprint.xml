@@ -29,7 +29,7 @@
 	</bean>
 
 	<reference id="gateway_service_db"
-		interface="br.ufba.dcc.wiser.m2dbX.service.GatewayServiceDB" />
+		interface="br.ufba.dcc.wiser.m2db.service.GatewayServiceDB" />
 
 
 </blueprint>
