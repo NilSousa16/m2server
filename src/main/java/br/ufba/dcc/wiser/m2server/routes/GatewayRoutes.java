@@ -49,7 +49,7 @@ public class GatewayRoutes {
 		try {
 			gateway = gatewayService.add(gateway);
 
-			return Response.status(Status.OK).entity(gson.toJson(gateway)).type(MediaType.APPLICATION_JSON).build();
+			return Response.status(Status.OK).build();
 		} catch (Exception e) {
 			GatewayException gatewayException = new GatewayException();
 
@@ -73,7 +73,7 @@ public class GatewayRoutes {
 		try {
 			gateway = gatewayService.update(gateway);
 
-			return Response.status(Status.OK).entity(gson.toJson(gateway)).type(MediaType.APPLICATION_JSON).build();
+			return Response.status(Status.OK).build();
 		} catch (Exception e) {
 			GatewayException gatewayException = new GatewayException();
 
@@ -93,7 +93,7 @@ public class GatewayRoutes {
 
 		try {
 			gatewayService.delete(mac);
-			return Response.status(Status.NO_CONTENT).type(MediaType.APPLICATION_JSON).build();
+			return Response.status(Status.NO_CONTENT).build();
 		} catch (Exception e) {
 			GatewayException gatewayException = new GatewayException();
 

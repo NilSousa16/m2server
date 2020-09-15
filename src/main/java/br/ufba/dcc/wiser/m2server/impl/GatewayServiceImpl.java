@@ -1,5 +1,6 @@
 package br.ufba.dcc.wiser.m2server.impl;
 
+import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.PersistenceException;
@@ -28,6 +29,7 @@ public class GatewayServiceImpl implements GatewayService {
 	public Gateway add(Gateway gateway) throws Exception {
 
 		try {
+			gateway.setDate(Calendar.getInstance());
 			gatewayServiceDB.add(gateway);
 			return gateway;
 		}catch (PersistenceException e) {
@@ -39,8 +41,10 @@ public class GatewayServiceImpl implements GatewayService {
 	public Gateway update(Gateway gateway) throws Exception {
 
 		try {
-			if(this.find(gateway.getMac()) != null)
+			if(this.find(gateway.getMac()) != null) {
+				gateway.setDate(Calendar.getInstance());
 				gatewayServiceDB.update(gateway);
+			}
 			else
 				throw new Exception("Record not found for update");
 				
