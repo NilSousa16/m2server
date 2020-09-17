@@ -5,15 +5,11 @@ import java.util.List;
 
 import javax.persistence.PersistenceException;
 
-import com.google.gson.Gson;
-
 import br.ufba.dcc.wiser.m2db.service.GatewayServiceDB;
 import br.ufba.dcc.wiser.m2model.model.Gateway;
 import br.ufba.dcc.wiser.m2server.service.GatewayService;
 
 public class GatewayServiceImpl implements GatewayService {
-
-	Gson gson = new Gson();
 
 	GatewayServiceDB gatewayServiceDB;
 
@@ -31,6 +27,7 @@ public class GatewayServiceImpl implements GatewayService {
 		try {
 			gateway.setDate(Calendar.getInstance());
 			gatewayServiceDB.add(gateway);
+			// verificar se o gateway já existe
 			return gateway;
 		}catch (PersistenceException e) {
 			throw new Exception(e);

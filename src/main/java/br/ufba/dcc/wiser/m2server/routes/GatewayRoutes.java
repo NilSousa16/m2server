@@ -131,6 +131,7 @@ public class GatewayRoutes {
 	}
 
 	@GET
+	@Path("/")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response listGateways() {
 

@@ -4,6 +4,8 @@ import java.util.List;
 
 import br.ufba.dcc.wiser.m2model.model.Gateway;
 
+// Future use
+
 public interface GatewayService {
 
 	public Gateway add(Gateway gateway) throws Exception;
