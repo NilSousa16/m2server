@@ -23,9 +23,8 @@ public class GatewayStatusServiceImpl implements GatewayStatusService {
 	@Override
 	public GatewayStatus add(GatewayStatus gatewayStatus) throws Exception {
 		try {
-			// gatewayStatusServiceDB.add(gatewayStatus);
-			// não será verificado existência do gateway antes da inserção
-			// retornar erro se não conseguir inserir
+			gatewayStatusServiceDB.add(gatewayStatus);
+			
 			return gatewayStatus;
 		} catch (PersistenceException e) {
 			throw new Exception(e);
