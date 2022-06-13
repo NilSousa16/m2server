@@ -67,7 +67,7 @@ public class GatewayRoutes {
 	@PUT
 	@Path("/")
 	public Response update(String value) {
-
+		// error - I can't update just one information
 		Gateway gateway = gson.fromJson(value, Gateway.class);
 
 		try {
@@ -90,7 +90,7 @@ public class GatewayRoutes {
 	@DELETE
 	@Path("/remove")
 	public Response delete(@QueryParam("mac") String mac) {
-
+		// update path - no include remove
 		try {
 			gatewayService.delete(mac);
 			return Response.status(Status.NO_CONTENT).build();
@@ -111,8 +111,9 @@ public class GatewayRoutes {
 	@Path("/find")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response find(@QueryParam("mac") String mac) {
-
+		// update path - no include find
 		try {
+			
 			Gateway gatewayFound = gatewayService.find(mac);
 
 			return Response.status(Status.OK).entity(gson.toJson(gatewayFound)).type(MediaType.APPLICATION_JSON)

@@ -1,0 +1,9 @@
+/home/nilson/repositories/wiser/m2fot/m2server/src/main/java/br/ufba/dcc/wiser/m2server/impl/GatewayStatusServiceImpl.java
+/home/nilson/repositories/wiser/m2fot/m2server/src/main/java/br/ufba/dcc/wiser/m2server/impl/GatewayServiceImpl.java
+/home/nilson/repositories/wiser/m2fot/m2server/src/main/java/br/ufba/dcc/wiser/m2server/routes/GatewayStatusRoutes.java
+/home/nilson/repositories/wiser/m2fot/m2server/src/main/java/br/ufba/dcc/wiser/m2server/Activator.java
+/home/nilson/repositories/wiser/m2fot/m2server/src/main/java/br/ufba/dcc/wiser/m2server/exception/GatewayException.java
+/home/nilson/repositories/wiser/m2fot/m2server/src/main/java/br/ufba/dcc/wiser/m2server/routes/GatewayRoutes.java
+/home/nilson/repositories/wiser/m2fot/m2server/src/main/java/br/ufba/dcc/wiser/m2server/exception/ExceptionError.java
+/home/nilson/repositories/wiser/m2fot/m2server/src/main/java/br/ufba/dcc/wiser/m2server/service/GatewayStatusService.java
+/home/nilson/repositories/wiser/m2fot/m2server/src/main/java/br/ufba/dcc/wiser/m2server/service/GatewayService.java

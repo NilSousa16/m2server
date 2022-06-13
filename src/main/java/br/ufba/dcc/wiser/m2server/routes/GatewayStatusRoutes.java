@@ -19,7 +19,7 @@ import br.ufba.dcc.wiser.m2server.service.GatewayStatusService;
 import io.swagger.annotations.Api;
 
 /**
- * http://localhost:8181/cxf/m2fot/fot-gateway/
+ * http://localhost:8181/cxf/m2fot/fot-gateway-status/
  */
 
 @Path("/fot-gateway-status")

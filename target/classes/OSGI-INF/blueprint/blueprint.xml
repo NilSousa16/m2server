@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+	xmlns:jaxrs="http://cxf.apache.org/blueprint/jaxrs">
+
+	<!-- Gateway Routes -->
+
+	<jaxrs:server id="gateway_routes_resource"
+		address="/m2fot">
+		<jaxrs:serviceBeans>
+			<ref component-id="gateway_routes" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<bean id="gateway_routes"
+		class="br.ufba.dcc.wiser.m2server.routes.GatewayRoutes">
+		<property name="gatewayService" ref="gateway_service" />
+	</bean>
+
+	<bean id="gateway_service"
+		class="br.ufba.dcc.wiser.m2server.impl.GatewayServiceImpl">
+		<property name="gatewayServiceDB" ref="gateway_service_db" />
+	</bean>
+
+	<reference id="gateway_service_db"
+		interface="br.ufba.dcc.wiser.m2db.service.GatewayServiceDB" />
+
+	<!-- Gateway Routes -->
+
+	<!-- Gateway Status Routes -->
+	<jaxrs:server id="gateway_status_routes_resource"
+		address="/m2fot-status">
+		<jaxrs:serviceBeans>
+			<ref component-id="gateway_status_routes" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<bean id="gateway_status_routes"
+		class="br.ufba.dcc.wiser.m2server.routes.GatewayStatusRoutes">
+		<property name="gatewayStatusService"
+			ref="gateway_status_service" />
+	</bean>
+
+	<bean id="gateway_status_service"
+		class="br.ufba.dcc.wiser.m2server.impl.GatewayStatusServiceImpl">
+		<property name="gatewayStatusServiceDB"
+			ref="gateway_status_service_db" />
+	</bean>
+
+	<reference id="gateway_status_service_db"
+		interface="br.ufba.dcc.wiser.m2db.service.GatewayStatusServiceDB" />
+
+
+	<!-- Gateway Status Routes -->
+
+</blueprint>

@@ -27,7 +27,7 @@ public class GatewayServiceImpl implements GatewayService {
 		try {
 			gateway.setDate(Calendar.getInstance());
 			gatewayServiceDB.add(gateway);
-			// verificar se o gateway já existe
+
 			return gateway;
 		}catch (PersistenceException e) {
 			throw new Exception(e);
