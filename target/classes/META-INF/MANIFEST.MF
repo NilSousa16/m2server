@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1655155508225
+Bnd-LastModified: 1656279961423
 Build-Jdk: 18.0.1
 Built-By: root
 Bundle-Activator: br.ufba.dcc.wiser.m2server.Activator
