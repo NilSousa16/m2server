@@ -59,7 +59,7 @@ public class DeviceStatusRoutes {
 	@GET
 	@Path("/find")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response findByMac(@QueryParam("id") String id) {
+	public Response findById(@QueryParam("id") String id) {
 		try {
 			List<DeviceStatus> deviceStatusList = deviceStatusService.findById(id);
 

@@ -4,7 +4,6 @@
 	xmlns:jaxrs="http://cxf.apache.org/blueprint/jaxrs">
 
 	<!-- Gateway Routes -->
-
 	<jaxrs:server id="gateway_routes_resource"
 		address="/m2fot">
 		<jaxrs:serviceBeans>
@@ -24,8 +23,6 @@
 
 	<reference id="gateway_service_db"
 		interface="br.ufba.dcc.wiser.m2db.service.GatewayServiceDB" />
-
-	<!-- Gateway Routes -->
 
 	<!-- Gateway Status Routes -->
 	<jaxrs:server id="gateway_status_routes_resource"
@@ -49,8 +46,51 @@
 
 	<reference id="gateway_status_service_db"
 		interface="br.ufba.dcc.wiser.m2db.service.GatewayStatusServiceDB" />
+	
+	<!-- Device  Routes -->
+	
+	<jaxrs:server id="device_routes_resource"
+		address="/m2fot">
+		<jaxrs:serviceBeans>
+			<ref component-id="device_routes" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	
+	<bean id="device_routes"
+		class="br.ufba.dcc.wiser.m2server.routes.DeviceRoutes">
+		<property name="deviceService" ref="device_service" />
+	</bean>
+	
+	<bean id="device_service"
+		class="br.ufba.dcc.wiser.m2server.impl.DeviceServiceImpl">
+		<property name="deviceServiceDB" ref="device_service_db" />
+	</bean>
+	
+	<reference id="device_service_db"
+		interface="br.ufba.dcc.wiser.m2db.service.DeviceServiceDB" />
+	
+	<!-- Device Status Routes -->
+	
+	<jaxrs:server id="device_status_routes_resource"
+		address="/m2fot-status">
+		<jaxrs:serviceBeans>
+			<ref component-id="device_status_routes" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	
+	<bean id="device_status_routes"
+		class="br.ufba.dcc.wiser.m2server.routes.DeviceStatusRoutes">
+		<property name="deviceStatusService"
+			ref="device_status_service" />
+	</bean>
 
-
-	<!-- Gateway Status Routes -->
+	<bean id="device_status_service"
+		class="br.ufba.dcc.wiser.m2server.impl.DeviceStatusServiceImpl">
+		<property name="deviceStatusServiceDB"
+			ref="device_status_service_db" />
+	</bean>
+	
+	<reference id="device_status_service_db"
+		interface="br.ufba.dcc.wiser.m2db.service.DeviceStatusServiceDB" />
 
 </blueprint>
