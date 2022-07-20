@@ -1,0 +1,16 @@
+br/ufba/dcc/wiser/m2server/impl/DeviceServiceImpl.class
+br/ufba/dcc/wiser/m2server/impl/DeviceStatusServiceImpl.class
+br/ufba/dcc/wiser/m2server/routes/GatewayStatusRoutes.class
+br/ufba/dcc/wiser/m2server/exception/GatewayException.class
+br/ufba/dcc/wiser/m2server/routes/GatewayRoutes.class
+br/ufba/dcc/wiser/m2server/service/GatewayStatusService.class
+br/ufba/dcc/wiser/m2server/routes/DeviceStatusRoutes.class
+br/ufba/dcc/wiser/m2server/service/DeviceStatusService.class
+br/ufba/dcc/wiser/m2server/impl/GatewayServiceImpl.class
+br/ufba/dcc/wiser/m2server/exception/DeviceException.class
+br/ufba/dcc/wiser/m2server/service/DeviceService.class
+br/ufba/dcc/wiser/m2server/Activator.class
+br/ufba/dcc/wiser/m2server/routes/DeviceRoutes.class
+br/ufba/dcc/wiser/m2server/exception/ExceptionError.class
+br/ufba/dcc/wiser/m2server/service/GatewayService.class
+br/ufba/dcc/wiser/m2server/impl/GatewayStatusServiceImpl.class

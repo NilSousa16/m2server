@@ -13,7 +13,9 @@ import javax.ws.rs.core.Response.Status;
 
 import com.google.gson.Gson;
 
+import br.ufba.dcc.wiser.m2model.model.Device;
 import br.ufba.dcc.wiser.m2model.model.DeviceStatus;
+import br.ufba.dcc.wiser.m2model.model.DeviceStatusTransfer;
 import br.ufba.dcc.wiser.m2server.exception.DeviceException;
 import br.ufba.dcc.wiser.m2server.service.DeviceStatusService;
 import io.swagger.annotations.Api;
@@ -26,22 +28,34 @@ public class DeviceStatusRoutes {
 
 	Gson gson = new Gson();
 
-	public DeviceStatusService getGatewayStatusService() {
+	public DeviceStatusService getDeviceStatusService() {
 		return deviceStatusService;
 	}
 
-	public void setGatewayStatusService(DeviceStatusService deviceStatusService) {
+	public void setDeviceStatusService(DeviceStatusService deviceStatusService) {
 		this.deviceStatusService = deviceStatusService;
 	}
 
 	@POST
 	@Path("/")
 	public Response add(String value) {
-		DeviceStatus deviceStatus = gson.fromJson(value, DeviceStatus.class);
+		// DeviceStatus deviceStatus = gson.fromJson(value, DeviceStatus.class);
 
+		// Conversion to object that is stored
+		DeviceStatusTransfer deviceStatusTransfer = gson.fromJson(value, DeviceStatusTransfer.class);
+
+		DeviceStatus deviceStatus = new DeviceStatus();
+
+		deviceStatus.setDate(deviceStatusTransfer.getDate());
+		deviceStatus.setSituation(deviceStatusTransfer.getSituation());
+
+		Device device = new Device();
+		device.setId(deviceStatusTransfer.getIdDevice());
+		deviceStatus.setDevice(device);
+		
 		try {
 			deviceStatus = deviceStatusService.addDevice(deviceStatus);
-
+			
 			return Response.status(Status.OK).build();
 		} catch (Exception e) {
 			DeviceException deviceException = new DeviceException();
@@ -85,8 +99,8 @@ public class DeviceStatusRoutes {
 		try {
 			List<DeviceStatus> listDeviceStatus = deviceStatusService.getListAllStatus();
 
-			return Response.status(Status.OK).entity(gson.toJson(listDeviceStatus)).
-					type(MediaType.APPLICATION_JSON).build();
+			return Response.status(Status.OK).entity(gson.toJson(listDeviceStatus)).type(MediaType.APPLICATION_JSON)
+					.build();
 		} catch (Exception e) {
 			DeviceException deviceException = new DeviceException();
 
@@ -99,5 +113,5 @@ public class DeviceStatusRoutes {
 					.type(MediaType.APPLICATION_JSON).build();
 		}
 	}
-	
+
 }

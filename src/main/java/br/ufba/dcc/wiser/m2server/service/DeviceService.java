@@ -10,9 +10,9 @@ public interface DeviceService {
 
 	public Device update(Device device) throws Exception;
 	
-	public void delete(String mac) throws Exception;
+	public void delete(String id) throws Exception;
 
-	public Device find(String mac) throws Exception;
+	public Device find(String id) throws Exception;
 
 	public List<Device> getList() throws Exception;
 

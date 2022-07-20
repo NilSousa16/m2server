@@ -53,7 +53,6 @@ public class GatewayServiceImpl implements GatewayService {
 
 	@Override
 	public void delete(String mac) throws Exception {
-		
 		try {
 			gatewayServiceDB.delete(mac);
 		}catch (Exception e) {
