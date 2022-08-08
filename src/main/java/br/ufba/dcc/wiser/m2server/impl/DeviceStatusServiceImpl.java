@@ -39,6 +39,15 @@ public class DeviceStatusServiceImpl implements DeviceStatusService {
 			throw new Exception(e);
 		}
 	}
+	
+	@Override
+	public List<DeviceStatus> findByGateway(String gatewayMac) throws Exception {
+		try {
+			return deviceStatusServiceDB.findByGateway(gatewayMac);
+		} catch (Exception e) {
+			throw new Exception(e);
+		}
+	}
 
 	@Override
 	public List<DeviceStatus> getListAllStatus() throws Exception {

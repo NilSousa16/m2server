@@ -133,6 +133,34 @@ public class DeviceRoutes {
 					.type(MediaType.APPLICATION_JSON).build();
 		}
 	}
+	
+	@GET
+	@Path("/find/device_gateway")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response listDevicesByGateway(@QueryParam("gatewayMac") String gatewayMac) {
+		try {
+			List<Device> listDevice = deviceService.getListByGateway(gatewayMac);
+
+			return Response.status(Status.OK).header("Access-Control-Allow-Origin", "*")
+					.header("Access-Control-Allow-Credentials", "true")
+					.header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+					.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+					.entity(gson.toJson(listDevice)).type(MediaType.APPLICATION_JSON).build();
+		} catch (Exception e) {
+			GatewayException gatewayException = new GatewayException();
+
+			gatewayException.setError("listDevicesByGateway");
+			gatewayException.setMessage("Information listing device error ");
+
+			System.out.println("Log: " + e.toString());
+
+			return Response.status(Status.INTERNAL_SERVER_ERROR).header("Access-Control-Allow-Origin", "*")
+					.header("Access-Control-Allow-Credentials", "true")
+					.header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+					.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+					.entity(gson.toJson(gatewayException)).type(MediaType.APPLICATION_JSON).build();
+		}
+	}
 
 	@GET
 	@Path("/")

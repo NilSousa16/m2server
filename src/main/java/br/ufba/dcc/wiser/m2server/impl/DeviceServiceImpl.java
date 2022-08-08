@@ -66,6 +66,15 @@ public class DeviceServiceImpl implements DeviceService {
 			throw new Exception(e);
 		}		
 	}
+	
+	@Override
+	public List<Device> getListByGateway(String gatewayMac) throws Exception {
+		try {
+			return deviceServiceDB.listByGateway(gatewayMac);
+		}catch (Exception e) {
+			throw new Exception(e);
+		}	
+	}
 
 	@Override
 	public List<Device> getList() throws Exception {

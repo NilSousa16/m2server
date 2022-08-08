@@ -9,6 +9,8 @@ public interface DeviceStatusService {
 	public DeviceStatus addDevice(DeviceStatus deviceStatus) throws Exception;
 
 	public List<DeviceStatus> findById(String id) throws Exception;
+	
+	public List<DeviceStatus> findByGateway(String gatewayMac) throws Exception;
 
 	public List<DeviceStatus> getListAllStatus() throws Exception;
 

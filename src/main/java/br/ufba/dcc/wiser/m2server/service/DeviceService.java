@@ -13,6 +13,8 @@ public interface DeviceService {
 	public void delete(String id) throws Exception;
 
 	public Device find(String id) throws Exception;
+	
+	public List<Device> getListByGateway(String gatewayMac) throws Exception;
 
 	public List<Device> getList() throws Exception;
 

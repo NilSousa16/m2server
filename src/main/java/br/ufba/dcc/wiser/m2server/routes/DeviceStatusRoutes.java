@@ -71,7 +71,7 @@ public class DeviceStatusRoutes {
 	}
 
 	@GET
-	@Path("/find")
+	@Path("/find/")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response findById(@QueryParam("id") String id) {
 		try {
@@ -89,6 +89,34 @@ public class DeviceStatusRoutes {
 
 			return Response.status(Status.INTERNAL_SERVER_ERROR).entity(gson.toJson(deviceException))
 					.type(MediaType.APPLICATION_JSON).build();
+		}
+	}
+	
+	@GET
+	@Path("/find/gateway")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response findByGateway(@QueryParam("gatewayMac") String gatewayMac) {
+		try {
+			List<DeviceStatus> deviceStatusList = deviceStatusService.findByGateway(gatewayMac);
+
+			return Response.status(Status.OK).header("Access-Control-Allow-Origin", "*")
+					.header("Access-Control-Allow-Credentials", "true")
+					.header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+					.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")					
+					.entity(gson.toJson(deviceStatusList)).type(MediaType.APPLICATION_JSON).build();
+		} catch (Exception e) {
+			DeviceException deviceException = new DeviceException();
+
+			deviceException.setError("Find by Gateway");
+			deviceException.setMessage("Error fetching device status information " + gatewayMac);
+
+			System.out.println("Log: " + e.toString());
+
+			return Response.status(Status.INTERNAL_SERVER_ERROR).header("Access-Control-Allow-Origin", "*")
+					.header("Access-Control-Allow-Credentials", "true")
+					.header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+					.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+					.entity(gson.toJson(deviceException)).type(MediaType.APPLICATION_JSON).build();
 		}
 	}
 

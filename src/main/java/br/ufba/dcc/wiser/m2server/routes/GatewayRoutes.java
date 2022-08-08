@@ -82,8 +82,11 @@ public class GatewayRoutes {
 
 			System.out.println("Log: " + e.toString());
 
-			return Response.status(Status.INTERNAL_SERVER_ERROR).entity(gson.toJson(gatewayException))
-					.type(MediaType.APPLICATION_JSON).build();
+			return Response.status(Status.INTERNAL_SERVER_ERROR).header("Access-Control-Allow-Origin", "*")
+					.header("Access-Control-Allow-Credentials", "true")
+					.header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+					.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+					.entity(gson.toJson(gatewayException)).type(MediaType.APPLICATION_JSON).build();
 		}
 	}
 
@@ -113,11 +116,14 @@ public class GatewayRoutes {
 	public Response find(@QueryParam("mac") String mac) {
 		// update path - no include find
 		try {
-			
+
 			Gateway gatewayFound = gatewayService.find(mac);
 
-			return Response.status(Status.OK).entity(gson.toJson(gatewayFound)).type(MediaType.APPLICATION_JSON)
-					.build();
+			return Response.status(Status.OK).header("Access-Control-Allow-Origin", "*")
+					.header("Access-Control-Allow-Credentials", "true")
+					.header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+					.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+					.entity(gson.toJson(gatewayFound)).type(MediaType.APPLICATION_JSON).build();
 		} catch (Exception e) {
 			GatewayException gatewayException = new GatewayException();
 
@@ -126,8 +132,11 @@ public class GatewayRoutes {
 
 			System.out.println("Log: " + e.toString());
 
-			return Response.status(Status.INTERNAL_SERVER_ERROR).entity(gson.toJson(gatewayException))
-					.type(MediaType.APPLICATION_JSON).build();
+			return Response.status(Status.INTERNAL_SERVER_ERROR).header("Access-Control-Allow-Origin", "*")
+					.header("Access-Control-Allow-Credentials", "true")
+					.header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+					.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+					.entity(gson.toJson(gatewayException)).type(MediaType.APPLICATION_JSON).build();
 		}
 	}
 
@@ -138,9 +147,15 @@ public class GatewayRoutes {
 
 		try {
 			List<Gateway> listGateway = gatewayService.getList();
+			// permitions cors - https://www.baeldung.com/cors-in-jax-rs
+			return Response.status(Status.OK).header("Access-Control-Allow-Origin", "*")
+					.header("Access-Control-Allow-Credentials", "true")
+					.header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+					.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+					.entity(gson.toJson(listGateway)).type(MediaType.APPLICATION_JSON).build();
 
-			return Response.status(Status.OK).entity(gson.toJson(listGateway)).
-					type(MediaType.APPLICATION_JSON).build();
+//			return Response.status(Status.OK).entity(gson.toJson(listGateway)).
+//					type(MediaType.APPLICATION_JSON).build();
 		} catch (Exception e) {
 			GatewayException gatewayException = new GatewayException();
 
@@ -149,8 +164,13 @@ public class GatewayRoutes {
 
 			System.out.println("Log: " + e.toString());
 
-			return Response.status(Status.INTERNAL_SERVER_ERROR).entity(gson.toJson(gatewayException))
-					.type(MediaType.APPLICATION_JSON).build();
+//			return Response.status(Status.INTERNAL_SERVER_ERROR).entity(gson.toJson(gatewayException))
+//					.type(MediaType.APPLICATION_JSON).build();
+			return Response.status(Status.INTERNAL_SERVER_ERROR).header("Access-Control-Allow-Origin", "*")
+					.header("Access-Control-Allow-Credentials", "true")
+					.header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+					.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+					.entity(gson.toJson(gatewayException)).type(MediaType.APPLICATION_JSON).build();
 		}
 	}
 
