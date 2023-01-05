@@ -77,7 +77,11 @@ public class DeviceStatusRoutes {
 		try {
 			List<DeviceStatus> deviceStatusList = deviceStatusService.findById(id);
 
-			return Response.status(Status.OK).entity(gson.toJson(deviceStatusList)).type(MediaType.APPLICATION_JSON)
+			return Response.status(Status.OK).header("Access-Control-Allow-Origin", "*")
+					.header("Access-Control-Allow-Credentials", "true")
+					.header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+					.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+					.entity(gson.toJson(deviceStatusList)).type(MediaType.APPLICATION_JSON)
 					.build();
 		} catch (Exception e) {
 			DeviceException deviceException = new DeviceException();
@@ -87,7 +91,11 @@ public class DeviceStatusRoutes {
 
 			System.out.println("Log: " + e.toString());
 
-			return Response.status(Status.INTERNAL_SERVER_ERROR).entity(gson.toJson(deviceException))
+			return Response.status(Status.INTERNAL_SERVER_ERROR).header("Access-Control-Allow-Origin", "*")
+					.header("Access-Control-Allow-Credentials", "true")
+					.header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+					.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+					.entity(gson.toJson(deviceException))
 					.type(MediaType.APPLICATION_JSON).build();
 		}
 	}
@@ -127,8 +135,11 @@ public class DeviceStatusRoutes {
 		try {
 			List<DeviceStatus> listDeviceStatus = deviceStatusService.getListAllStatus();
 
-			return Response.status(Status.OK).entity(gson.toJson(listDeviceStatus)).type(MediaType.APPLICATION_JSON)
-					.build();
+			return Response.status(Status.OK).header("Access-Control-Allow-Origin", "*")
+					.header("Access-Control-Allow-Credentials", "true")
+					.header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+					.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")	
+					.entity(gson.toJson(listDeviceStatus)).type(MediaType.APPLICATION_JSON).build();
 		} catch (Exception e) {
 			DeviceException deviceException = new DeviceException();
 
@@ -137,8 +148,11 @@ public class DeviceStatusRoutes {
 
 			System.out.println("Log: " + e.toString());
 
-			return Response.status(Status.INTERNAL_SERVER_ERROR).entity(gson.toJson(deviceException))
-					.type(MediaType.APPLICATION_JSON).build();
+			return Response.status(Status.INTERNAL_SERVER_ERROR).header("Access-Control-Allow-Origin", "*")
+					.header("Access-Control-Allow-Credentials", "true")
+					.header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+					.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+					.entity(gson.toJson(deviceException)).type(MediaType.APPLICATION_JSON).build();
 		}
 	}
 

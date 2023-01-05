@@ -119,8 +119,11 @@ public class DeviceRoutes {
 
 			Device deviceFound = deviceService.find(id);
 
-			return Response.status(Status.OK).entity(gson.toJson(deviceFound)).type(MediaType.APPLICATION_JSON)
-					.build();
+			return Response.status(Status.OK).header("Access-Control-Allow-Origin", "*")
+					.header("Access-Control-Allow-Credentials", "true")
+					.header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+					.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+					.entity(gson.toJson(deviceFound)).type(MediaType.APPLICATION_JSON).build();
 		} catch (Exception e) {
 			DeviceException deviceException = new DeviceException();
 
@@ -129,11 +132,15 @@ public class DeviceRoutes {
 
 			System.out.println("Log: " + e.toString());
 
-			return Response.status(Status.INTERNAL_SERVER_ERROR).entity(gson.toJson(deviceException))
+			return Response.status(Status.INTERNAL_SERVER_ERROR).header("Access-Control-Allow-Origin", "*")
+					.header("Access-Control-Allow-Credentials", "true")
+					.header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+					.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+					.entity(gson.toJson(deviceException))
 					.type(MediaType.APPLICATION_JSON).build();
 		}
 	}
-	
+
 	@GET
 	@Path("/find/device_gateway")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -169,8 +176,11 @@ public class DeviceRoutes {
 		try {
 			List<Device> listDevice = deviceService.getList();
 
-			return Response.status(Status.OK).entity(gson.toJson(listDevice)).
-					type(MediaType.APPLICATION_JSON).build();
+			return Response.status(Status.OK).header("Access-Control-Allow-Origin", "*")
+					.header("Access-Control-Allow-Credentials", "true")
+					.header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+					.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+					.entity(gson.toJson(listDevice)).type(MediaType.APPLICATION_JSON).build();
 		} catch (Exception e) {
 			GatewayException gatewayException = new GatewayException();
 
@@ -179,8 +189,11 @@ public class DeviceRoutes {
 
 			System.out.println("Log: " + e.toString());
 
-			return Response.status(Status.INTERNAL_SERVER_ERROR).entity(gson.toJson(gatewayException))
-					.type(MediaType.APPLICATION_JSON).build();
+			return Response.status(Status.INTERNAL_SERVER_ERROR).header("Access-Control-Allow-Origin", "*")
+					.header("Access-Control-Allow-Credentials", "true")
+					.header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+					.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+					.entity(gson.toJson(gatewayException)).type(MediaType.APPLICATION_JSON).build();
 		}
 	}
 
